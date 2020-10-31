@@ -1,17 +1,69 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" >
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     <title>あなたは一人じゃない。気軽に相談してみよう</title>
-  </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="jumbotron.css" rel="stylesheet">
+    <link href="../example.css" rel="stylesheet">
+    </head>
+
   <body>
-    <%= yield %>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+  <div class="container">
+    <span class="skiplink-text">Skip to main content</span>
+  </div>
+  </a>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="py-2" href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+  </a>
+  <%# <%= link_to image_tag("logo.png", class: "logo navbar-brand"), root_path %>
+    <%# <style> %>
+    <%# .logo {
+      width: 200px;
+    } 
+    </style> %> 
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+        <a class="nav-link" href="#"> ログアウト<span class="sr-only">（現在位置）</span></a>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+        <a class="nav-link" href="#">新規投稿</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
+      <input class="form-control mr-sm-2" type="text" placeholder="検索" aria-label="検索">
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+    </form>
+  </div>
+  </nav>
+  <%= yield %> 
+  <footer class="container">
+  <p>always support</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script>
+  window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery-slim.min.js"><\/script>')
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script><script src="/docs/4.5/assets/js/vendor/anchor.min.js"></script>
+  <script src="/docs/4.5/assets/js/vendor/clipboard.min.js"></script>
+  <script src="/docs/4.5/assets/js/vendor/bs-custom-file-input.min.js"></script>
+  <script src="/docs/4.5/assets/js/src/application.js"></script>
+  <script src="/docs/4.5/assets/js/src/search.js"></script>
+  <script src="/docs/4.5/assets/js/src/ie-emulation-modes-warning.js"></script>
   </body>
 </html>
