@@ -29,15 +29,24 @@
   
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
+    <% if user_signed_in? %>
       <li class="nav-item active">
-        <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-        <a class="nav-link" href="#"> ログアウト<span class="sr-only">（現在位置）</span></a>
+        <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link", method: :delete %>
       </li>
       <li class="nav-item">
-        <!-- <a class="nav-link" href="#">Link</a> -->
-        <a class="nav-link" href="#">新規投稿</a>
+        <%= link_to "新規投稿", "#", class: "nav-link" %>
       </li>
+    <% else %>
+      <li class="nav-item active">
+        <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+      </li>
+    <% end %>
     </ul>
+  
+  
     <form class="form-inline my-2 my-lg-0">
       <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
       <input class="form-control mr-sm-2" type="text" placeholder="検索" aria-label="検索">
