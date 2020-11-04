@@ -1,0 +1,70 @@
+<%= render "shared/header" %>
+
+<form class="position-relative container" style="top:100px">
+  <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+    <h2 class="mb-5">新規登録</h2>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-group">
+      <%= f.label :nackname, "ニックネーム"%><br />
+      <%= f.text_field :nickname, placeholder: "例) タロウ", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, "メールアドレス"%><br />
+      <%= f.email_field :email, placeholder: "メールアドレスを入力してください", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "パスワード"%><br />
+      <%= f.password_field :password, placeholder: "パスワードを入力してください", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "確認用パスワード"%><br />
+      <%= f.password_field :password, placeholder: "もう一度パスワードを入力してください", class: "form-control" %>
+    </div>
+    <div class="form-row">
+    <div class="form-group">
+    <label for="gender_id">性別</label>
+    <select id="gender_id" class="custom-select mt-2" name="gender_id">
+      <option selected id="1">性別を選択して下さい</option>
+      <option id="2">男性</option>
+      <option id="3">女性</option>
+      <option id="4">選択しない</option>
+    </select>
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group">
+    <label for="age_id">年齢</label>
+    <select id="age_id" class="custom-select mt-2" name="age_id">
+      <option selected id="1">年齢を選択して下さい</option>
+      <option id="2">10代以下</option>
+      <option id="3">20代</option>
+      <option id="4">30代</option>
+      <option id="5">40代</option>
+      <option id="6">50代</option>
+      <option id="7">60代</option>
+      <option id="8">70代</option>
+      <option id="9">80代以上</option>
+    </select>
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group">
+    <label for="occupation_id">職業</label>
+    <select id="occupation_id" class="custom-select mt-2" name="occupation">
+      <option selected id="1">職業を選択して下さい</option>
+      <option id="2">会社員</option>
+      <option id="3">会社役員</option>
+      <option id="4">自営業</option>
+      <option id="5">パート・アルバイト</option>
+      <option id="6">専業主婦(夫)</option>
+      <option id="7">公務員</option>
+      <option id="8">学生</option>
+      <option id="9">その他</option>
+    </select>
+    </div>
+    </div>
+    <%= f.submit "送信", class:"btn btn-primary mt-3"%>
+  <% end %>
+</form>
