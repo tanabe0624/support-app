@@ -62,10 +62,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-<<<<<<< HEAD
 gem 'devise'
-gem 'active_hash'
 gem 'pry-rails'
-=======
-gem 'devise'
->>>>>>> parent of e9c163a... Add ActiveHash
