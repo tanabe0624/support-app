@@ -1,0 +1,37 @@
+<%= render "shared/header" %>
+
+<%# <form class="position-relative container" style="top:100px"> %>
+  <div class="position-relative" style="top:100px" >
+  <%= form_with model: @user, url: user_registration_path, class: "container", local: true do |f| %>
+    <h2 class="mb-4">新規登録</h2>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-group">
+      <%= f.label :nackname, "ニックネーム"%><br />
+      <%= f.text_field :nickname, placeholder: "例) タロウ", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, "メールアドレス"%><br />
+      <%= f.email_field :email, placeholder: "メールアドレスを入力してください", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "パスワード"%><br />
+      <%= f.password_field :password, placeholder: "パスワードを入力してください", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "確認用パスワード"%><br />
+      <%= f.password_field :password, placeholder: "もう一度パスワードを入力してください", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.select :gender_id, [ ["性別を選択してください",1], ["男性", 2], ["女性", 3], ["選択しない",4] ]%>
+    </div>
+    <div class="form-group">
+      <%= f.select :age_id, [ ["年齢を選択してください",1], ["10代以下", 2], ["20代", 3], ["30代",4] , ["40代",5], ["50代",6], ["60代",7], ["70代",8], ["80代",9] ] %>
+    </div>
+    <div class="form-group">
+      <%= f.select :occupation_id, [ ["職業を選択してください",1], ["会社員", 2], ["会社役員", 3], ["自営業",4] , ["パート・アルバイト",5], ["専業主婦(夫)",6], ["公務員",7], ["学生",8], ["その他",9] ] %>
+    </div>
+    <%= f.submit "送信", class:"btn btn-primary mt-3"%>
+  <% end %>
+  </div>
