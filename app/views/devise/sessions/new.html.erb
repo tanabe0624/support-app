@@ -1,8 +1,7 @@
 <%= render "shared/header" %>
 
-<main role="main">
-<form class="position-relative" style="top:100px; left:20px;">
-  <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+<div class="position-relative" style="top:100px">
+  <%= form_with model: @user, url: user_session_path, class: "container", local: true do |f| %>
     <div class="form-group">
       <%= f.label :email, "メールアドレス"%><br />
       <%= f.email_field :email, placeholder: "メールアドレスを入力してください", class: "form-control" %>
@@ -13,5 +12,4 @@
     </div>
     <button type="submit" class="btn btn-primary">送信</button>
   <% end %>
-</form>
-</main>
+</div>
