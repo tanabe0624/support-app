@@ -24,35 +24,23 @@
   </div>
 
   <div class="container">
-    <!-- Example row of columns -->
     <div class="row">
-      
-      <div class="col-md-4 mt-5">
-        <!-- <h2>Heading</h2> -->
-        <h2>見出し</h2>
-        <!-- <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p> -->
-        <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。</p>
-        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-        <p><a class="btn btn-secondary" href="#" role="button">詳しくみる &raquo;</a></p>
-      </div>
-      <div class="col-md-4 mt-5">
-        <!-- <h2>Heading</h2> -->
-        <h2>見出し</h2>
-        <!-- <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p> -->
-        <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。</p>
-        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-        <p><a class="btn btn-secondary" href="#" role="button">詳しくみる &raquo;</a></p>
-      </div>
-      <div class="col-md-4 mt-5">
-        <!-- <h2>Heading</h2> -->
-        <h2>見出し</h2>
-        <!-- <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p> -->
-        <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。</p>
-        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-        <p><a class="btn btn-secondary" href="#" role="button">詳しくみる &raquo</a></p>
-      </div>
+      <% @tweets.each do |tweet| %>
+        <div class='col-md-4 mt-5'>
+          <%= link_to "#" do %>
+          <h2><%= tweet.title %></h2>
+          <p><%= tweet.text %></P>
+          <ul class="list-inline">
+            <li class="list-inline-item"><%= tweet.user.nickname %></li>
+            <li class="list-inline-item"><%= tweet.user.age.name%></li>
+            <li class="list-inline-item"><%= tweet.user.gender.name%></li>
+          </ul>
+          <p><a class="btn btn-secondary" href="#" role="button">詳しくみる &raquo;</a></p>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <hr>
-  </div> <!-- /container -->
+  </div> 
 </main>
 

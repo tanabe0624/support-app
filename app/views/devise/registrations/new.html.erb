@@ -8,7 +8,7 @@
     <%= render 'shared/error_messages', model: f.object %>
 
     <div class="form-group">
-      <%= f.label :nackname, "ニックネーム"%><br />
+      <%= f.label :nickname, "ニックネーム"%><br />
       <%= f.text_field :nickname, placeholder: "例) タロウ", class: "form-control" %>
     </div>
     <div class="form-group">
@@ -24,13 +24,16 @@
       <%= f.password_field :password, placeholder: "もう一度パスワードを入力してください", class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.select :gender_id, [ ["性別を選択してください",1], ["男性", 2], ["女性", 3], ["選択しない",4] ]%>
+      <%= f.label :gender_id, "性別"%><br />
+      <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}) %>
     </div>
     <div class="form-group">
-      <%= f.select :age_id, [ ["年齢を選択してください",1], ["10代以下", 2], ["20代", 3], ["30代",4] , ["40代",5], ["50代",6], ["60代",7], ["70代",8], ["80代",9] ] %>
+      <%= f.label :age_id, "年齢"%><br />
+      <%= f.collection_select(:age_id, Age.all, :id, :name, {}) %>
     </div>
     <div class="form-group">
-      <%= f.select :occupation_id, [ ["職業を選択してください",1], ["会社員", 2], ["会社役員", 3], ["自営業",4] , ["パート・アルバイト",5], ["専業主婦(夫)",6], ["公務員",7], ["学生",8], ["その他",9] ] %>
+      <%= f.label :occupation_id, "職業"%><br />
+      <%= f.collection_select(:occupation_id, Occupation.all, :id, :name, {}) %>
     </div>
     <%= f.submit "送信", class:"btn btn-primary mt-3"%>
   <% end %>
