@@ -6,8 +6,8 @@
         <h2 class="card-title"><%= @tweet.title %></h2>
         <% if user_signed_in? && current_user.id == @tweet.user_id %>
           <div class="text-right">
-            <%= link_to '編集', edit_tweet_path, class: "card-link", method: :get %>
-            <%= link_to '削除', "#", class: "card-link text-right", method: :delete %>
+            <%= link_to '編集', edit_tweet_path, class: "card-link" %>
+            <%= link_to '削除', tweet_path, method: :delete, class: "card-link" %>
           </div>
         <% end %>
         <p class="card-text"><%= @tweet.text %></p>

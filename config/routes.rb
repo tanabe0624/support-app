@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   end
   
   root to: "tweets#index"  
-  resources :tweets, except: :destroy
+  resources :tweets, except: :index
 end
