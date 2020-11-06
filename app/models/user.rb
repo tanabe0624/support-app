@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :age
-  belongs_to_active_hash :category
   belongs_to_active_hash :gender
   belongs_to_active_hash :occupation
   

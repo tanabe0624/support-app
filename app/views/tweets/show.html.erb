@@ -1,0 +1,29 @@
+<%= render "shared/header" %>
+  <div class="position-relative" style="top:100px" >
+  <div class="container"> 
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title"><%= @tweet.title %></h2>
+        <% if user_signed_in? && current_user.id == @tweet.user_id %>
+          <div class="text-right">
+            <%= link_to '編集', "#", class: "card-link", method: :get %>
+            <%= link_to '削除', "#", class: "card-link text-right", method: :delete %>
+          </div>
+        <% end %>
+        <p class="card-text"><%= @tweet.text %></p>
+        <ul class="list-inline">
+        <%= link_to "#" do %>
+          <li class="list-inline-item"><%= @tweet.user.nickname %></li>
+        <% end %>
+          <li class="list-inline-item"><%= @tweet.user.age.name %></li>
+          <li class="list-inline-item"><%= @tweet.user.gender.name %></li>
+          <li class="list-inline-item"><%= @tweet.user.occupation.name %></li>
+        <%= link_to "#" do %>
+          <li class="list-inline-item ml-4">悩み：<%= @tweet.category.name %></li>  <%# 後ほどカテゴリー検索機能 %>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+      <%# 後ほどコメント機能実装 %>
+  </div>
+  </div>
