@@ -27,16 +27,16 @@
     <div class="row">
       <% @tweets.each do |tweet| %>
         <div class='col-md-4 mt-5'>
-          <%= link_to "#" do %>
           <h2><%= tweet.title %></h2>
           <p><%= tweet.text %></P>
           <ul class="list-inline">
-            <li class="list-inline-item"><%= tweet.user.nickname %></li>
-            <li class="list-inline-item"><%= tweet.user.age.name%></li>
-            <li class="list-inline-item"><%= tweet.user.gender.name%></li>
+            <%=link_to "#" do%>
+              <li class="list-inline-item"><%= tweet.user.nickname %></li>
+            <% end %>
+              <li class="list-inline-item"><%= tweet.user.age.name%></li>
+              <li class="list-inline-item"><%= tweet.user.gender.name%></li>
           </ul>
-          <p><a class="btn btn-secondary" href="#" role="button">詳しくみる &raquo;</a></p>
-          <% end %>
+          <%= link_to "詳しく見る >>", tweet_path(tweet.id), class: 'btn btn-secondary' %>
         </div>
       <% end %>
     </div>
