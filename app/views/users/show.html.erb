@@ -7,8 +7,8 @@
     <div class="card p-5 mb-3 rounded-pill border border-info">
       <% if user_signed_in? && current_user.id == tweet.user_id %>
       <div class="text-right">
-        <%= link_to '編集', edit_tweet_path, class: "card-link" %>
-        <%= link_to '削除', tweet_path, method: :delete, class: "card-link" %>
+        <%= link_to '編集', edit_tweet_path(tweet.id), class: "card-link" %>
+        <%= link_to '削除', tweet_path(tweet.id), method: :delete, class: "card-link" %>
       </div>
       <% end %>
       <h2><%= tweet.title %></h2>
