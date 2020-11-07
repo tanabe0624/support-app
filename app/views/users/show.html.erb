@@ -1,0 +1,30 @@
+<%= render "shared/header" %>
+
+  <div class="position-relative" style="top:100px" >
+  <div class="container">
+    <h4 class="mb-4 text-secondary"><%= @nickname %>さんの投稿一覧</h4>
+    <% @tweets.each do |tweet| %>
+    <div class="card p-5 mb-3 rounded-pill border border-info">
+      <% if user_signed_in? && current_user.id == tweet.user_id %>
+      <div class="text-right">
+        <%= link_to '編集', edit_tweet_path(tweet.id), class: "card-link" %>
+        <%= link_to '削除', tweet_path(tweet.id), method: :delete, class: "card-link" %>
+      </div>
+      <% end %>
+      <h2><%= tweet.title %></h2>
+      <p class="mt-2"><%= tweet.text %></P>
+      <ul class="list-inline">
+        <%=link_to "#" do%>
+          <li class="list-inline-item"><%= tweet.user.nickname %></li>
+        <% end %>
+          <li class="list-inline-item ml-2"><%= tweet.user.age.name%></li>
+          <li class="list-inline-item"><%= tweet.user.gender.name%></li>
+        <%= link_to "#" do %>
+          <li class="list-inline-item ml-4">悩み：<%= tweet.category.name %></li>  <%# 後ほどカテゴリー検索機能 %>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%# 後ほどコメント機能実装 %>
+  </div> 
+  </div>
