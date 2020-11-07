@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
-
+  before_action :move_to_index, only: :edit
   def index
     @tweets = Tweet.all.includes(:user).order('created_at DESC')
   end
@@ -48,5 +48,11 @@ class TweetsController < ApplicationController
 
   def set_tweet
     @tweet = Tweet.find(params[:id])
+  end
+
+  def move_to_index
+    unless current_user.id == @tweet.user_id
+      redirect_to root_path
+    end
   end
 end
