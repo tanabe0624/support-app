@@ -12,10 +12,10 @@
         <% end %>
         <p class="card-text"><%= @tweet.text %></p>
         <ul class="list-inline">
-        <%= link_to "#" do %>
+        <%= link_to "/users/#{current_user.id}" do %>
           <li class="list-inline-item"><%= @tweet.user.nickname %></li>
         <% end %>
-          <li class="list-inline-item"><%= @tweet.user.age.name %></li>
+          <li class="list-inline-item ml-2"><%= @tweet.user.age.name %></li>
           <li class="list-inline-item"><%= @tweet.user.gender.name %></li>
           <li class="list-inline-item"><%= @tweet.user.occupation.name %></li>
         <%= link_to "#" do %>
