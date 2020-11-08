@@ -25,22 +25,21 @@
 
   <div class="container">
     <div class="row">
-      <% @tweets.each do |tweet| %>
-        <div class='col-md-4 mt-5'>
-          <h2><%= tweet.title %></h2>
-          <p><%= tweet.text %></P>
-          <ul class="list-inline">
-            <%=link_to "/users/#{current_user.id}" do%>
-              <li class="list-inline-item"><%= tweet.user.nickname %></li>
-            <% end %>
-              <li class="list-inline-item ml-2"><%= tweet.user.age.name%></li>
-              <li class="list-inline-item"><%= tweet.user.gender.name%></li>
-          </ul>
-          <%= link_to "詳しく見る >>", tweet_path(tweet.id), class: 'btn btn-secondary' %>
-        </div>
-      <% end %>
+    <% @tweets.each do |tweet| %>
+    <div class="col-md-4 p-5 mt-4 mb-2 rounded-pill border border-light bg-light text-dar">
+      <h3><%= tweet.title %></h3>
+      <p class="mt-2"><%= truncate(tweet.text, length:30) %></P>
+      <ul class="list-inline">
+        <%=link_to "/users/#{current_user.id}" do%>
+          <li class="list-inline-item"><%= tweet.user.nickname %></li>
+        <% end %>
+          <li class="list-inline-item"><%= tweet.user.age.name%></li>
+          <li class="list-inline-item"><%= tweet.user.gender.name%></li>
+      </ul>
+      <%= link_to "詳しく見る >>", tweet_path(tweet.id), class: 'btn btn-secondary' %>
     </div>
-    <hr>
+    <% end %>
+    <%# 後ほどコメント機能実装 %>
   </div> 
+  </div>
 </main>
-
