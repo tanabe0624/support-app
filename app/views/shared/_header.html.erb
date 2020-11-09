@@ -28,11 +28,9 @@
       </li>
     <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
-      <input class="form-control mr-sm-2" type="text" placeholder="検索" aria-label="検索">
-      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
-    </form>
+    <%= form_with(url: search_tweets_path, class: "form-inline my-2 my-lg-0", local: true, method: :get) do |f|%>
+      <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "form-control mr-sm-2" %>
+      <%= f.submit "検索", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
   </div>
   </nav>
