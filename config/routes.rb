@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
   
   root to: "tweets#index"  
-  resources :tweets, except: :index
+  resources :tweets, except: :index do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :users, only: :show
 end
