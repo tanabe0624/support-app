@@ -1,18 +1,18 @@
 <%= render "shared/header" %>
   <div class="position-relative" style="top:100px" >
   <div class="container"> 
-    <div class="card">
+    <div class="card border-success" style="background-color:#f3f3f3;">
       <div class="card-body">
-        <h2 class="card-title"><%= @tweet.title %></h2>
         <% if user_signed_in? && current_user.id == @tweet.user_id %>
           <div class="text-right">
             <%= link_to '編集', edit_tweet_path, class: "card-link" %>
             <%= link_to '削除', tweet_path, method: :delete, class: "card-link" %>
           </div>
         <% end %>
+        <h3 class="card-title mb-4"><%= @tweet.title %></h3>
         <p class="card-text"><%= @tweet.text %></p>
         <ul class="list-inline">
-        <%= link_to "/users/#{current_user.id}" do %>
+        <%= link_to "/users/#{@tweet.user.id}" do %>
           <li class="list-inline-item"><%= @tweet.user.nickname %></li>
         <% end %>
           <li class="list-inline-item ml-2"><%= @tweet.user.age.name %></li>
@@ -22,8 +22,33 @@
           <li class="list-inline-item ml-4">悩み：<%= @tweet.category.name %></li>  <%# 後ほどカテゴリー検索機能 %>
         <% end %>
         </ul>
+
+        <% if user_signed_in? %>
+          <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+            <%= f.text_area :text, placeholder: "コメントする", rows: "1", class: "form-control w-50" %>
+            <%= f.submit "SEND", class: "btn btn-primary mt-2 mb-2"%>
+          <% end %>
+        <% else %>
+          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+        <% end %>
+        <div>
+          <h6>＜コメント一覧＞</h6>
+          <% if @comments %>
+            <% @comments.each do |comment| %>
+              <p>
+                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
+                <%= comment.text %>
+                <% if user_signed_in? && current_user.id == comment.user.id %>
+                <div class="text-right">
+                  <%= link_to "コメント削除", tweet_comment_path(comment.tweet.id, comment.id), method: :delete, class: "card-link" %>
+                </div>
+                <% end %>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
+
       </div>
     </div>
-      <%# 後ほどコメント機能実装 %>
   </div>
   </div>

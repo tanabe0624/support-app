@@ -30,7 +30,7 @@
       <h3><%= tweet.title %></h3>
       <p class="mt-2"><%= truncate(tweet.text, length:30) %></P>
       <ul class="list-inline">
-        <%=link_to "/users/#{current_user.id}" do%>
+        <%=link_to "/users/#{tweet.user.id}" do%>
           <li class="list-inline-item"><%= tweet.user.nickname %></li>
         <% end %>
           <li class="list-inline-item"><%= tweet.user.age.name%></li>
@@ -39,7 +39,6 @@
       <%= link_to "詳しく見る >>", tweet_path(tweet.id), class: 'btn btn-secondary' %>
     </div>
     <% end %>
-    <%# 後ほどコメント機能実装 %>
   </div> 
   </div>
 </main>
