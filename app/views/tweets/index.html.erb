@@ -39,6 +39,7 @@
       <%= link_to "詳しく見る >>", tweet_path(tweet.id), class: 'btn btn-secondary' %>
     </div>
     <% end %>
-  </div> 
+    </div> 
+    <%= paginate @tweets %>
   </div>
 </main>

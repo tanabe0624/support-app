@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   before_action :move_to_index, only: :edit
 
   def index
-    @tweets = Tweet.all.includes(:user).order('created_at DESC')
+    @tweets = Tweet.all.page(params[:page]).per(9).includes(:user).order('created_at DESC')
   end
 
   def new
