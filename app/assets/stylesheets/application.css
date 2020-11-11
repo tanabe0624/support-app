@@ -29,3 +29,8 @@
 .pagination>li>a:hover {        
   border-radius: 15px;
 }
+
+.blur{
+  filter: blur(1px);
+  width: 100%;
+}

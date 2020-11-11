@@ -1,6 +1,5 @@
 <%= render "shared/header" %>
 
-
   <div class="position-relative" style="top:100px" >
   <%= form_with model: @tweet, class: "container", local: true do |f| %>
     <h2 class="mb-4">新規投稿</h2>
@@ -22,3 +21,9 @@
     <%= f.submit "送信", class:"btn btn-primary mt-3"%>
   <% end %>
   </div>
+
+<footer class="footer mt-auto py-3 bg-secondary position-relative" style="top:120px" >
+  <div class="container">
+    <p>always support</p>
+  </div>
+</footer>

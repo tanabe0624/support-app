@@ -1,40 +1,45 @@
 <%= render "shared/header" %>
 
-<%# <form class="position-relative container" style="top:100px"> %>
   <div class="position-relative" style="top:100px" >
-  <%= form_with model: @user, url: user_registration_path, class: "container", local: true do |f| %>
-    <h2 class="mb-4">新規登録</h2>
+    <%= form_with model: @user, url: user_registration_path, class: "container", local: true do |f| %>
+      <h2 class="mb-4">新規登録</h2>
 
-    <%= render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="form-group">
-      <%= f.label :nickname, "ニックネーム"%><br />
-      <%= f.text_field :nickname, placeholder: "例) タロウ", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email, "メールアドレス"%><br />
-      <%= f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password, "パスワード"%><br />
-      <%= f.password_field :password, placeholder: "半角英数字6文字以上で設定してください", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password, "確認用パスワード"%><br />
-      <%= f.password_field :password, placeholder: "もう一度パスワードを入力してください", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :gender_id, "性別"%><br />
-      <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}) %>
-    </div>
-    <div class="form-group">
-      <%= f.label :age_id, "年齢"%><br />
-      <%= f.collection_select(:age_id, Age.all, :id, :name, {}) %>
-    </div>
-    <div class="form-group">
-      <%= f.label :occupation_id, "職業"%><br />
-      <%= f.collection_select(:occupation_id, Occupation.all, :id, :name, {}) %>
-    </div>
-    <%= f.submit "送信", class:"btn btn-primary mt-3"%>
-  <% end %>
+      <div class="form-group">
+        <%= f.label :nickname, "ニックネーム"%><br />
+        <%= f.text_field :nickname, placeholder: "例) タロウ", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "メールアドレス"%><br />
+        <%= f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, "パスワード"%><br />
+        <%= f.password_field :password, placeholder: "半角英数字6文字以上で設定してください", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, "確認用パスワード"%><br />
+        <%= f.password_field :password, placeholder: "もう一度パスワードを入力してください", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :gender_id, "性別"%><br />
+        <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}) %>
+      </div>
+      <div class="form-group">
+        <%= f.label :age_id, "年齢"%><br />
+        <%= f.collection_select(:age_id, Age.all, :id, :name, {}) %>
+      </div>
+      <div class="form-group">
+        <%= f.label :occupation_id, "職業"%><br />
+        <%= f.collection_select(:occupation_id, Occupation.all, :id, :name, {}) %>
+      </div>
+      <%= f.submit "送信", class:"btn btn-primary mt-3"%>
+    <% end %>
   </div>
+
+<footer class="footer mt-auto py-3 bg-secondary position-relative" style="top:120px" >
+  <div class="container">
+    <p>always support</p>
+  </div>
+</footer>
