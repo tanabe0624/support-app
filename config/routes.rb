@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :likes, only: [:create, :destroy]
   end
-  resources :users, only: :show
+  resources :users, only: :show do
+    collection do
+      get 'like'
+    end
+  end
 end
