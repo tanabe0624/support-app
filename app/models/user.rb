@@ -15,8 +15,6 @@ class User < ApplicationRecord
     validates :age_id
     validates :occupation_id
   end
-   # このバリデーションは、各idのid:1以外のときに保存できるという意味
-
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
@@ -24,5 +22,11 @@ class User < ApplicationRecord
 
   has_many :tweets
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :liked_tweets, through: :likes, source: :tweet
+
+  def already_liked?(tweet)
+    self.likes.exists?(tweet_id: tweet.id)
+  end
 
 end
