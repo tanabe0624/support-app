@@ -1,13 +1,18 @@
 class LikesController < ApplicationController
+before_action :set_tweet, only: [:create, :destroy]
 
   def create
-    @like = current_user.likes.create(tweet_id: params[:tweet_id])
-    redirect_to root_path
+    @like = current_user.likes.build(tweet_id: params[:tweet_id], user_id: current_user.id)
+    @like.save
   end
 
   def destroy
     @like = Like.find_by(tweet_id: params[:tweet_id], user_id: current_user.id)
     @like.destroy
-    redirect_to root_path
+  end
+
+  private
+  def set_tweet
+    @tweet = Tweet.find(params[:tweet_id])
   end
 end
