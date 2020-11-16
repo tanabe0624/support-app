@@ -6,32 +6,33 @@
 
       <%= render 'shared/error_messages', model: f.object %>
 
+      <div class="alert alert-dark mb-5" role="alert">メールアドレス：qq＠qq   パスワード：qqqqqq1 でログインしていただけます</div>
       <div class="form-group">
-        <%= f.label :nickname, "ニックネーム"%><br />
+        <%= f.label :nickname, "ニックネーム"%><span class="badge badge-danger ml-2">必須</span><br />
         <%= f.text_field :nickname, placeholder: "例) タロウ", class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :email, "メールアドレス"%><br />
+        <%= f.label :email, "メールアドレス"%><span class="badge badge-danger ml-2">必須</span><br />
         <%= f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :password, "パスワード"%><br />
+        <%= f.label :password, "パスワード"%><span class="badge badge-danger ml-2">必須</span><br />
         <%= f.password_field :password, placeholder: "半角英数字6文字以上で設定してください", class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :password, "確認用パスワード"%><br />
+        <%= f.label :password, "確認用パスワード"%><span class="badge badge-danger ml-2">必須</span><br />
         <%= f.password_field :password, placeholder: "もう一度パスワードを入力してください", class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :gender_id, "性別"%><br />
+        <%= f.label :gender_id, "性別"%><span class="badge badge-danger ml-2">必須</span><br />
         <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}) %>
       </div>
       <div class="form-group">
-        <%= f.label :age_id, "年齢"%><br />
+        <%= f.label :age_id, "年齢"%><span class="badge badge-danger ml-2">必須</span><br />
         <%= f.collection_select(:age_id, Age.all, :id, :name, {}) %>
       </div>
       <div class="form-group">
-        <%= f.label :occupation_id, "職業"%><br />
+        <%= f.label :occupation_id, "職業"%><span class="badge badge-danger ml-2">必須</span><br />
         <%= f.collection_select(:occupation_id, Occupation.all, :id, :name, {}) %>
       </div>
       <%= f.submit "送信", class:"btn btn-primary mt-3"%>
@@ -40,6 +41,8 @@
 
 <footer class="footer mt-auto py-3 bg-secondary position-relative" style="top:120px" >
   <div class="container">
-    <p>always support</p>
+    <div><%=link_to "いのちと暮らしの相談ナビ (外部サイト)", 'http://lifelink-db.org/', target: "_blank", class: "text-light mr-5" %></div>
+    <div><%=link_to "よりそいチャット (外部サイト)", 'https://yorisoi-chat.jp/', target: "_blank", class: "text-light"%></div>
+    <p>Copyright place. All rights reserved.</p>
   </div>
 </footer>

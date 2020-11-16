@@ -2,7 +2,7 @@
 
   <div class="position-relative" style="top:100px" >
   <%= form_with model: @tweet, class: "container", local: true do |f| %>
-    <h2 class="mb-4">投稿編集</h2>
+    <h2 class="text-primary mb-4">投稿編集</h2>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -23,7 +23,9 @@
   </div>
 
 <footer class="footer mt-auto py-3 bg-secondary position-relative" style="top:142px" >
-    <div class="container">
-      <p>always support</p>
-    </div>
+  <div class="container">
+    <div><%=link_to "いのちと暮らしの相談ナビ (外部サイト)", 'http://lifelink-db.org/', target: "_blank", class: "text-light mr-5" %></div>
+    <div><%=link_to "よりそいチャット (外部サイト)", 'https://yorisoi-chat.jp/', target: "_blank", class: "text-light"%></div>
+    <p>Copyright place. All rights reserved.</p>
+  </div>
 </footer>

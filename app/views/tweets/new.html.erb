@@ -2,20 +2,20 @@
 
   <div class="position-relative" style="top:100px" >
   <%= form_with model: @tweet, class: "container", local: true do |f| %>
-    <h2 class="mb-4">新規投稿</h2>
+    <h2 class="text-primary mb-4">新規投稿</h2>
 
     <%= render 'shared/error_messages', model: f.object %>
 
     <div class="form-group">
-      <%= f.label :title, "タイトル" %><br />
+      <%= f.label :title, "タイトル" %><span class="badge badge-danger ml-2">必須</span><br />
       <%= f.text_field :title, placeholder: "タイトルを入力してください", class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :text, "メッセージ"%><br />
+      <%= f.label :text, "メッセージ"%><span class="badge badge-danger ml-2">必須</span><br />
       <%= f.text_area :text, placeholder: "悩みや困っていることを相談しましょう", class: "form-control", rows: "10" %>
     </div>
     <div class="form-group">
-      <%= f.label :category_id, "悩みの種類"%><br />
+      <%= f.label :category_id, "悩みの種類"%><span class="badge badge-danger ml-2">必須</span><br />
       <%= f.collection_select(:category_id, Category.all, :id, :name, {}) %>
     </div>
     <%= f.submit "送信", class:"btn btn-primary mt-3"%>
@@ -24,6 +24,8 @@
 
 <footer class="footer mt-auto py-3 bg-secondary position-relative" style="top:120px" >
   <div class="container">
-    <p>always support</p>
+    <div><%=link_to "いのちと暮らしの相談ナビ (外部サイト)", 'http://lifelink-db.org/', target: "_blank", class: "text-light mr-5" %></div>
+    <div><%=link_to "よりそいチャット (外部サイト)", 'https://yorisoi-chat.jp/', target: "_blank", class: "text-light"%></div>
+    <p>Copyright place. All rights reserved.</p>
   </div>
 </footer>
