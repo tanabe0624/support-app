@@ -60,6 +60,9 @@
 
 # テーブル設計
 
+## ER図
+![ER図](https://i.gyazo.com/da1f8398b8379d3a2869d4fd94ec87e7.png)
+
 ## users テーブル
 
 | Column        | Type    | Options     |
