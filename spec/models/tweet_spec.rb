@@ -13,31 +13,31 @@ RSpec.describe Tweet, type: :model do
     it 'titleが空では保存できないこと' do
       @tweet.title = nil
       @tweet.valid?
-      expect(@tweet.errors.full_messages).to include("Title can't be blank")
+      expect(@tweet.errors.full_messages).to include("タイトルを入力してください")
     end
 
     it 'textが空では保存できないこと' do
       @tweet.text = nil
       @tweet.valid?
-      expect(@tweet.errors.full_messages).to include("Text can't be blank")
+      expect(@tweet.errors.full_messages).to include("テキストを入力してください")
     end
 
     it 'category_idが空では保存できないこと' do
       @tweet.category_id = nil
       @tweet.valid?
-      expect(@tweet.errors.full_messages).to include("Category can't be blank")
+      expect(@tweet.errors.full_messages).to include("悩みの種類を入力してください")
     end
 
     it 'cateogry_idが1では保存できないこと' do
       @tweet.category_id = 1
       @tweet.valid?
-      expect(@tweet.errors.full_messages).to include('Category must be other than 1')
+      expect(@tweet.errors.full_messages).to include('悩みの種類は1以外の値にしてください')
     end
 
     it 'userが紐付いていないと保存できないこと' do
       @tweet.user = nil
       @tweet.valid?
-      expect(@tweet.errors.full_messages).to include('User must exist')
+      expect(@tweet.errors.full_messages).to include('Userを入力してください')
     end
   end  
 end

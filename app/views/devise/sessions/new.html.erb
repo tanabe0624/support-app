@@ -2,6 +2,10 @@
 
 <div class="position-relative" style="top:100px">
   <%= form_with model: @user, url: user_session_path, class: "container", local: true do |f| %>
+    <div class="mb-4">
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
     <div class="alert alert-dark mb-5" role="alert">メールアドレス：qq＠qq   パスワード：qqqqqq1 でログインしていただけます</div>
     <div class="form-group">
       <%= f.label :email, "メールアドレス"%><span class="badge badge-danger ml-2">必須</span><br />

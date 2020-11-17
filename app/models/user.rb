@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true # 一意性であること
   validates :nickname, presence: true
 
-  with_options presence: true, numericality: { other_than: 1 } do
+  with_options presence: true, numericality: { other_than: 1, message: 'を選択してください'} do
     validates :gender_id
     validates :age_id
     validates :occupation_id
