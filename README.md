@@ -60,6 +60,10 @@
 
 # テーブル設計
 
+## EQ図
+![ER図](https://i.gyazo.com/60918799be51158891e0d0aeeb176144.png)
+
+
 ## users テーブル
 
 | Column        | Type    | Options     |
