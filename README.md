@@ -14,10 +14,10 @@
 - コメント機能
 - コメント削除機能
 - 検索機能
+- いいね機能
 
 # アプリケーションURL
 
-* [Place](http://54.95.238.168/)
 * http://54.95.238.168/
 
 # テスト用アカウント
@@ -28,7 +28,7 @@
 # 利用方法
 
 * 未ログイン時は投稿の一覧を閲覧、他ユーザーのマイページの閲覧、検索機能を使用することができる
-* ログイン時は上記に加え、新規投稿、コメント投稿・削除などができる
+* ログイン時は上記に加え、新規投稿、コメント投稿・削除、いいねなどができる
 
 # 目指した課題解決
 
@@ -43,9 +43,7 @@
 # 実装予定の機能
 
 * SNS認証
-* いいね機能
 * カテゴリー検索機能
-* ゲストユーザー機能
 
 # ローカルでの動作方法
 
@@ -77,6 +75,7 @@
 
 - has_many :tweets
 - has_many :comments
+- has_many :likes
 
 ## tweets テーブル
 
@@ -91,6 +90,7 @@
 
 - belongs_to :user
 - has_many :comments
+- has_many :likes
 
 ## comments テーブル
 
@@ -104,3 +104,16 @@
 
 - belongs_to :user
 - belongs_to :tweet
+
+## likes テーブル
+
+| Column | Type       | Option                         |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| tweet  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :tweet
+
