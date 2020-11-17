@@ -1,4 +1,15 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        gender_id: 性別
+        age_id: 年齢
+        occupation_id: 職業
+      tweet:
+        title: タイトル
+        text: テキスト
+        category_id: 悩みの種類
   views:
     pagination:
       first: "&laquo; 最初"
@@ -6,3 +17,4 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+    
