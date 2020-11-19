@@ -10,6 +10,8 @@ ja:
         title: タイトル
         text: テキスト
         category_id: 悩みの種類
+      comment:
+        text: テキスト
   views:
     pagination:
       first: "&laquo; 最初"
