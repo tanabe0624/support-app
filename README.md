@@ -18,16 +18,22 @@
 
 # Demo
 
+## 新規投稿機能
 ![新規投稿](https://user-images.githubusercontent.com/71654670/99866332-d07f8f00-2bf3-11eb-8f03-9ea94ea692a1.gif)
 
+## 投稿一覧表示、詳細、編集、削除
 ![投稿一覧表示、詳細、編集、削除](https://user-images.githubusercontent.com/71654670/99866260-16882300-2bf3-11eb-86ec-0ec752adc71a.gif)
 
+## マイページ機能
 ![マイページ](https://user-images.githubusercontent.com/71654670/99866408-41bf4200-2bf4-11eb-9031-af149b475b0a.gif)
 
+## コメント機能
 ![コメント機能](https://user-images.githubusercontent.com/71654670/99866440-821ec000-2bf4-11eb-9c3b-5a949c066a82.gif)
 
+## 検索機能
 ![検索機能](https://user-images.githubusercontent.com/71654670/99866507-138e3200-2bf5-11eb-92a9-0504306f5488.gif)
 
+## いいね機能
 ![いいね機能](https://user-images.githubusercontent.com/71654670/99866469-babe9980-2bf4-11eb-8387-c2d07709745e.gif)
 
 # アプリケーションURL
