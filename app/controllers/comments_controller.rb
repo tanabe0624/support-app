@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     else
       @tweet = @comment.tweet
       @comments = @tweet.comment
-      render "tweets/show"
+      render 'tweets/show'
     end
   end
 
@@ -16,8 +16,8 @@ class CommentsController < ApplicationController
     redirect_to tweet_path(@comment.tweet)
   end
 
-
   private
+
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, tweet_id: params[:tweet_id])
   end

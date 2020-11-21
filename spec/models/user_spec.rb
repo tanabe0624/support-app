@@ -13,13 +13,13 @@ RSpec.describe User, type: :model do
     it 'nicknameが空では登録できないこと' do
       @user.nickname = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+      expect(@user.errors.full_messages).to include('ニックネームを入力してください')
     end
 
     it 'emailが空では登録できないこと' do
       @user.email = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("Eメールを入力してください")
+      expect(@user.errors.full_messages).to include('Eメールを入力してください')
     end
 
     it '重複したemailが存在する場合登録できないこと' do
@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
     it 'passwordが空では登録できないこと' do
       @user.password = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワードを入力してください")
+      expect(@user.errors.full_messages).to include('パスワードを入力してください')
     end
 
     it 'passwordが6文字以上であれば登録できること' do
@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
       @user.password = 'aaa456'
       @user.password_confirmation = 'aaa4567'
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+      expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
     end
 
     it 'passwordが半角英数字混合での入力であれば登録できること' do
@@ -84,7 +84,7 @@ RSpec.describe User, type: :model do
     it 'age_idが空では保存できないこと' do
       @user.age_id = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("年齢を入力してください", "年齢は数値で入力してください")
+      expect(@user.errors.full_messages).to include('年齢を入力してください', '年齢は数値で入力してください')
     end
 
     it 'age_idが1では保存できないこと' do
@@ -118,4 +118,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-

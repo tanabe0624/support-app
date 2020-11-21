@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-before_action :set_tweet, only: [:create, :destroy]
+  before_action :set_tweet, only: [:create, :destroy]
 
   def create
     @like = current_user.likes.build(tweet_id: params[:tweet_id], user_id: current_user.id)
@@ -12,6 +12,7 @@ before_action :set_tweet, only: [:create, :destroy]
   end
 
   private
+
   def set_tweet
     @tweet = Tweet.find(params[:tweet_id])
   end

@@ -50,6 +50,7 @@ class TweetsController < ApplicationController
   end
 
   private
+
   def tweet_params
     params.require(:tweet).permit(:title, :text, :category_id).merge(user_id: current_user.id)
   end
@@ -59,8 +60,6 @@ class TweetsController < ApplicationController
   end
 
   def move_to_index
-    unless current_user.id == @tweet.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @tweet.user_id
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "ツイート投稿", type: :system do
+RSpec.describe 'ツイート投稿', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @tweet = FactoryBot.create(:tweet)
@@ -28,9 +28,9 @@ RSpec.describe "ツイート投稿", type: :system do
       select '恋愛', from: '悩みの種類'
       select 'その他', from: '悩みの種類'
       # 送信するとTweetモデルのカウントが1上がることを確認する
-      expect{
+      expect do
         click_on('送信')
-      }.to change { Tweet.count }.by(1)
+      end.to change { Tweet.count }.by(1)
       # トップページに遷移する
       visit root_path
       # トップページには先ほど投稿した内容のタイトルが存在することを確認する
@@ -45,7 +45,7 @@ RSpec.describe "ツイート投稿", type: :system do
       expect(page).to have_content(@tweet.user.gender.name)
     end
   end
-  context 'ツイート投稿ができないとき'do
+  context 'ツイート投稿ができないとき' do
     it 'ログインしていないと新規投稿ページに遷移できない' do
       # トップページに遷移する
       visit root_path
@@ -67,7 +67,7 @@ RSpec.describe 'ツイート編集', type: :system do
       visit new_user_session_path
       fill_in 'メールアドレス', with: @tweet1.user.email
       fill_in 'パスワード', with: @tweet1.user.password
-      click_on("送信")
+      click_on('送信')
       expect(current_path).to eq root_path
       # 投稿詳細ページに遷移する
       visit tweet_path(@tweet1)
@@ -88,9 +88,9 @@ RSpec.describe 'ツイート編集', type: :system do
       fill_in 'tweet_text', with: "#{@tweet1.text}+編集したテキスト"
       select 'お金', from: '悩みの種類'
       # 編集してもTweetモデルのカウントは変わらないことを確認する
-      expect{
+      expect do
         click_on('送信')
-      }.to change { Tweet.count }.by(0)
+      end.to change { Tweet.count }.by(0)
       # 投稿詳細ページに遷移する
       visit tweet_path(@tweet1)
       # 投稿詳細ページには先ほど変更した内容のツイートが存在することを確認する（タイトル）
@@ -98,7 +98,7 @@ RSpec.describe 'ツイート編集', type: :system do
       # 投稿詳細ページには先ほど変更した内容のツイートが存在することを確認する（テキスト）
       expect(page).to have_content("#{@tweet1.text}+編集したテキスト")
       # 投稿詳細ページには先ほど変更した内容のツイートが存在することを確認する（悩みの種類）
-      expect(page).to have_content("お金")
+      expect(page).to have_content('お金')
     end
   end
   context 'ツイート編集ができないとき' do
@@ -108,7 +108,7 @@ RSpec.describe 'ツイート編集', type: :system do
       visit new_user_session_path
       fill_in 'メールアドレス', with: @tweet1.user.email
       fill_in 'パスワード', with: @tweet1.user.password
-      click_on("送信")
+      click_on('送信')
       expect(current_path).to eq root_path
       # 投稿詳細ページに遷移する
       visit tweet_path(@tweet2)
@@ -140,24 +140,24 @@ RSpec.describe 'ツイート削除', type: :system do
       visit new_user_session_path
       fill_in 'メールアドレス', with: @tweet1.user.email
       fill_in 'パスワード', with: @tweet1.user.password
-      click_on("送信")
+      click_on('送信')
       expect(current_path).to eq root_path
       # 投稿詳細ページに遷移する
       visit tweet_path(@tweet1)
       # ツイート1に「削除」ボタンがあることを確認する
       expect(page).to have_content('削除')
       # 投稿を削除するとレコードの数が1減ることを確認する
-      expect{
+      expect do
         click_on('削除')
-      }.to change { Tweet.count }.by(-1)
+      end.to change { Tweet.count }.by(-1)
       # トップページに遷移する
       expect(current_path).to eq root_path
       # トップページにはツイート1の内容が存在しないことを確認する（タイトル）
-      expect(page).to have_no_content("#{@tweet1.title}")
+      expect(page).to have_no_content(@tweet1.title.to_s)
       # トップページにはツイート1の内容が存在しないことを確認する（テキスト）
-      expect(page).to have_no_content("#{@tweet1.text}")
+      expect(page).to have_no_content(@tweet1.text.to_s)
       # トップページにはツイート1の内容が存在しないことを確認する（悩みの種類）
-      expect(page).to have_no_content("#{@tweet1.category_id}")
+      expect(page).to have_no_content(@tweet1.category_id.to_s)
     end
   end
   context 'ツイート削除ができないとき' do
@@ -167,7 +167,7 @@ RSpec.describe 'ツイート削除', type: :system do
       visit new_user_session_path
       fill_in 'メールアドレス', with: @tweet1.user.email
       fill_in 'パスワード', with: @tweet1.user.password
-      click_on("送信")
+      click_on('送信')
       expect(current_path).to eq root_path
       # 投稿詳細ページに遷移する
       visit tweet_path(@tweet2)

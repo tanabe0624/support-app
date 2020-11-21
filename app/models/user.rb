@@ -3,20 +3,20 @@ class User < ApplicationRecord
   belongs_to_active_hash :age
   belongs_to_active_hash :gender
   belongs_to_active_hash :occupation
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   validates :email, uniqueness: true # 一意性であること
   validates :nickname, presence: true
 
-  with_options presence: true, numericality: { other_than: 1, message: 'を選択してください'} do
+  with_options presence: true, numericality: { other_than: 1, message: 'を選択してください' } do
     validates :gender_id
     validates :age_id
     validates :occupation_id
   end
 
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
   # 上記２行でパスワードは、半角英数字混合での入力が必須であることの実装
 
@@ -26,7 +26,6 @@ class User < ApplicationRecord
   has_many :liked_tweets, through: :likes, source: :tweet
 
   def already_liked?(tweet)
-    self.likes.exists?(tweet_id: tweet.id)
+    likes.exists?(tweet_id: tweet.id)
   end
-
 end
