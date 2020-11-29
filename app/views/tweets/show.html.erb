@@ -6,7 +6,7 @@
         <% if user_signed_in? && current_user.id == @tweet.user_id %>
           <div class="text-right">
             <%= link_to '編集', edit_tweet_path, class: "card-link" %>
-            <%= link_to '削除', tweet_path, method: :delete, class: "card-link" %>
+            <%= link_to '削除', tweet_path, method: :delete, data: {confirm: "削除しますか？"}, class: "card-link" %>
           </div>
         <% end %>
           <h3 class="card-title mb-4"><%= @tweet.title %></h3>
@@ -42,7 +42,7 @@
                 <%= comment.text %>
                 <% if user_signed_in? && current_user.id == comment.user.id %>
                   <div class="text-right">
-                    <%= link_to "コメント削除", tweet_comment_path(comment.tweet.id, comment.id), method: :delete, class: "card-link" %>
+                    <%= link_to "コメント削除", tweet_comment_path(comment.tweet.id, comment.id), method: :delete, data: {confirm: "削除しますか？"}, class: "card-link" %>
                   </div>
                 <% end %>
               </p>
