@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   
   root to: "tweets#index"  
   resources :tweets, except: :index do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: %i[create destroy]
     collection do
       get 'search'
     end
-    resource :likes, only: [:create, :destroy]
+    resource :likes, only: %i[create destroy]
   end
   resources :users, only: :show 
 end

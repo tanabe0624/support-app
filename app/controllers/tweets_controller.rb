@@ -12,11 +12,9 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
-    if @tweet.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    return redirect_to root_path if @tweet.save
+    
+    render :new
   end
 
   def show
@@ -25,15 +23,10 @@ class TweetsController < ApplicationController
     @like = Like.new
   end
 
-  def edit
-  end
-
   def update
-    if @tweet.update(tweet_params)
-      redirect_to tweet_path(@tweet.id)
-    else
-      render :edit
-    end
+    return redirect_to tweet_path(@tweet.id) if @tweet.update(tweet_params)
+    
+    render :edit
   end
 
   def destroy

@@ -1,13 +1,11 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to tweet_path(@comment.tweet)
-    else
-      @tweet = @comment.tweet
-      @comments = @tweet.comment
-      render 'tweets/show'
-    end
+    return redirect_to tweet_path(@comment.tweet) if @comment.save
+    
+    @tweet = @comment.tweet
+    @comments = @tweet.comment
+    render 'tweets/show'
   end
 
   def destroy
